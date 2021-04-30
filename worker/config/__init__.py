@@ -16,4 +16,3 @@ DB_SCHEMA = "user_system_image"
 # RabbitMQ
 MQ_CONNECTION = os.environ.get("MQ_CONNECTION", "localhost")
 MQ_TIMESLEEP = os.environ.get("MQ_TIMESLEEP", 0.5)
-

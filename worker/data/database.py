@@ -1,10 +1,10 @@
 import datetime
 
 from loguru import logger
+from pony.orm import (Database, OperationalError, Required, db_session,
+                      set_sql_debug)
 
-from pony.orm import Database, Required, set_sql_debug, db_session, OperationalError
-
-from worker.config import DB_NAME, DB_PASS, DB_USER, DB_HOST, DB_SCHEMA
+from worker.config import DB_HOST, DB_NAME, DB_PASS, DB_SCHEMA, DB_USER
 
 db = Database()
 
@@ -42,5 +42,6 @@ def add_logged(logg):
         image_id=logg['image_id'],
         user_name=logg['user_name'],
         endpoint=logg['endpoint'],
-        date_from_api=datetime.datetime.strptime(logg['datetime'], '%Y-%m-%d %H:%M:%S')
+        date_from_api=datetime.datetime.strptime(
+            logg['datetime'], '%Y-%m-%d %H:%M:%S')
     )

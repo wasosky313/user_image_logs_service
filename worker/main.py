@@ -6,4 +6,4 @@ from worker import start
 try:
     start()
 except AMQPConnectionError:
-    logger.error("QUEUE SERVER CONNEXION: IS DOWN")
+    logger.error("QUEUE SERVER CONNEXION IS DOWN")
